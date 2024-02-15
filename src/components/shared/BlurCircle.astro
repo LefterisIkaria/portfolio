@@ -1,0 +1,40 @@
+---
+type Props = {
+  position?:
+    | "top-left"
+    | "top-center"
+    | "top-right"
+    | "middle-left"
+    | "middle-center"
+    | "middle-right"
+    | "bottom-left"
+    | "bottom-center"
+    | "bottom-right";
+  color?: "primary" | "accent";
+};
+
+const { position = "middle-center", color = "primary" } = Astro.props;
+
+const bgColors = {
+  primary: "bg-primary",
+  accent: "bg-accent",
+};
+---
+
+<div
+  class:list={{
+    [`fixed z-0 h-[134px] w-[134px] lg:w-[300px] lg:h-[300px] rounded-full ${bgColors[color]} blur-[150px] md:blur-[350px] opacity-50`]: true,
+    ["left-0 top-0"]: position === "top-left",
+    ["left-1/2 top-0 transform -translate-x-1/2"]: position === "top-center",
+    ["right-0 top-0"]: position === "top-right",
+    ["left-0 top-1/2 transform -translate-y-1/2"]: position === "middle-left",
+    ["left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"]:
+      position === "middle-center",
+    ["right-0 top-1/2 transform -translate-y-1/2"]: position === "middle-right",
+    ["left-0 bottom-0"]: position === "bottom-left",
+    ["left-1/2 bottom-0 transform -translate-x-1/2"]:
+      position === "bottom-center",
+    ["right-0 bottom-0"]: position === "bottom-right",
+  }}
+>
+</div>

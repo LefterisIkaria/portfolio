@@ -1,4 +1,13 @@
-<html lang="en">
+---
+// Supports weights 100-900
+import "@fontsource-variable/montserrat";
+
+import "../styles/base.css";
+import Header from "../components/Header.astro";
+import BlurCircle from "../components/shared/BlurCircle.astro";
+---
+
+<html lang="en" class="dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -6,11 +15,17 @@
     <meta name="generator" content={Astro.generator} />
     <title>lefpap</title>
   </head>
-  <body>
-    <header>...</header>
-    <main>
+  <body
+    class="bg-background text-base text-sm font-sans flex flex-col min-h-screen antialiased"
+  >
+    <Header />
+    <main class="container flex-1">
       <slot />
     </main>
-    <footer>...</footer>
+    <footer>Footer</footer>
+
+    <!-- <BlurCircle position="bottom-left" /> -->
+    <BlurCircle position="top-left" color="primary" />
+    <BlurCircle position="bottom-right" color="accent" />
   </body>
 </html>
