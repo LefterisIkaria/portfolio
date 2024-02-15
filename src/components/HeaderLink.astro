@@ -1,0 +1,25 @@
+---
+import { removeTrailingSlash } from "@/lib/utils";
+
+type Props = {
+  title: string;
+  href: string;
+  class?: string;
+};
+
+const { title, href, class: classes } = Astro.props;
+
+const pathname = removeTrailingSlash(Astro.url.pathname);
+---
+
+<a
+  href={href}
+  class:list={[
+    "font-medium transition-colors duration-150 hover:text-default-100",
+    {
+      "text-default-100 decoration-dashed underline underline-offset-8":
+        pathname === href,
+    },
+    classes,
+  ]}>{title}</a
+>

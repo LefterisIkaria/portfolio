@@ -1,12 +1,28 @@
-<header class="z-40">
+---
+import HeaderLink from "@/components/HeaderLink.astro";
+import ThemeSwitch from "./ui/ThemeSwitch.astro";
+---
+
+<header
+  class="z-40 flex flex-col gap-3 items-center md:justify-between md:flex-row"
+>
   <a
     href="/"
-    class="text-default font-bold transition-colors duration-150 hover:text-default-100"
-    >lefpap</a
+    class="text-base font-bold transition-colors duration-150 hover:text-default-100"
+    >lefpap
+  </a>
+
+  <div
+    class="flex flex-col items-center justify-center gap-3 sm:flex-row-reverse sm:gap-10"
   >
-  <nav class="flex items-center justify-center gap-8">
-    <a class="font-medium" href="/">Home</a>
-    <a class="font-medium" href="/projects">Projects</a>
-    <a class="font-medium" href="/blog">Blog</a>
-  </nav>
+    <ThemeSwitch />
+    <nav role="navigation" class="flex items-center justify-start gap-3">
+      <HeaderLink href="/" title="Home" href="/" />
+      <span>/</span>
+      <HeaderLink href="/projects" title="Projects" />
+      <span>/</span>
+      <HeaderLink href="/blog" title="Blog" />
+    </nav>
+  </div>
+  <!-- <ThemeSwitch /> -->
 </header>

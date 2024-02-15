@@ -8,9 +8,9 @@
     --default: theme(colors.neutral.500);
     --default-100: theme(colors.neutral.900);
     --background: theme(colors.neutral.200);
-    --primary: theme(colors.teal.500);
-    --primary-foreground: theme(colors.teal.50);
-    --accent: theme(colors.yellow.500);
+    --primary: theme(colors.teal.700);
+    --primary-foreground: theme(colors.teal.400);
+    --accent: theme(colors.yellow.800);
   }
   .dark {
     --default: theme(colors.neutral.400);
@@ -19,5 +19,11 @@
     --primary: theme(colors.teal.300);
     --primary-foreground: theme(colors.teal.950);
     --accent: theme(colors.yellow.500);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
   }
 }

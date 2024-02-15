@@ -14,12 +14,13 @@ import BlurCircle from "../components/shared/BlurCircle.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>lefpap</title>
+    <script is:inline src="/scripts/apply-theme.ts"></script>
   </head>
   <body
-    class="container bg-background text-default text-sm font-sans flex flex-col min-h-screen antialiased"
+    class="container py-16 bg-background text-default text-sm font-sans flex flex-col min-h-screen antialiased transition duration-500 ease-in"
   >
     <Header />
-    <main class="flex-1">
+    <main class="flex-1 my-16">
       <slot />
     </main>
     <footer>Footer</footer>

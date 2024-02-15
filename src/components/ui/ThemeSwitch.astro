@@ -1,0 +1,96 @@
+---
+
+---
+
+<button>
+  <!-- Sun -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-6 h-6"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+    ></path>
+  </svg>
+  <!-- Moon -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-6 h-6"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+    ></path>
+  </svg>
+</button>
+
+<script>
+  type Theme = "dark" | "light";
+
+  // Select elements
+  const button = document.querySelector("button");
+  const sun = button?.querySelector("svg:first-child");
+  const moon = button?.querySelector("svg:last-child");
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+  // Initialize theme on load
+  document?.addEventListener("DOMContentLoaded", () => {
+    const theme = getCurrentTheme();
+    applyTheme(theme);
+  });
+
+  // Toggle theme on button click
+  button?.addEventListener("click", () => {
+    const theme = getCurrentTheme();
+    const newTheme = theme === "dark" ? "light" : "dark";
+    applyTheme(newTheme);
+  });
+
+  // React to system theme changes
+  prefersDarkScheme?.addEventListener("change", (e) => {
+    const theme = e.matches ? "dark" : "light";
+    applyTheme(theme);
+  });
+
+  const getCurrentTheme = () => {
+    if ("theme" in localStorage) {
+      return localStorage.getItem("theme") as Theme;
+    }
+
+    return prefersDarkScheme.matches ? "dark" : "light";
+  };
+
+  const applyTheme = (theme: Theme) => {
+    switch (theme) {
+      case "dark":
+        document.documentElement.classList.add("dark");
+        sun?.classList.remove("hidden");
+        sun?.classList.add("block");
+        moon?.classList.add("hidden");
+        moon?.classList.remove("block");
+        localStorage.setItem("theme", "dark");
+        break;
+      case "light":
+        document.documentElement.classList.remove("dark");
+        sun?.classList.add("hidden");
+        sun?.classList.remove("block");
+        moon?.classList.remove("hidden");
+        moon?.classList.add("block");
+        localStorage.setItem("theme", "light");
+        break;
+      default:
+        throw new Error("Unknown theme");
+    }
+  };
+</script>
