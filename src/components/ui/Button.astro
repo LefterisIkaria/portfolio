@@ -2,13 +2,14 @@
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"button"> {
-  variant?: "default" | "test1" | "test2" | "test3";
+  variant?: "default" | "ghost" | "outline" | "link";
 }
 
 const { class: classes, variant = "default", ...rest } = Astro.props;
 ---
 
 <button
+  {...rest}
   class:list={[
     "bg-primary-foreground text-primary border border-primary border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:dark:brightness-150 hover:brightness-100 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group",
     classes,
@@ -17,5 +18,5 @@ const { class: classes, variant = "default", ...rest } = Astro.props;
   <span
     class="bg-primary shadow-primary absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"
   ></span>
-  Hover Me
+  <slot />
 </button>
