@@ -1,20 +1,20 @@
-/* The integration's default injected base.css file */
+/* The integration's default injected default.css file */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --base: theme(colors.neutral.500);
-    --base-100: theme(colors.neutral.900);
+    --default: theme(colors.neutral.500);
+    --default-100: theme(colors.neutral.900);
     --background: theme(colors.neutral.200);
     --primary: theme(colors.teal.500);
     --primary-foreground: theme(colors.teal.50);
     --accent: theme(colors.yellow.500);
   }
   .dark {
-    --base: theme(colors.neutral.400);
-    --base-100: theme(colors.neutral.100);
+    --default: theme(colors.neutral.400);
+    --default-100: theme(colors.neutral.100);
     --background: theme(colors.neutral.950);
     --primary: theme(colors.teal.300);
     --primary-foreground: theme(colors.teal.950);

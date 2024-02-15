@@ -16,8 +16,8 @@ export default {
     },
     extend: {
       colors: {
-        base: {
-          DEFAULT: "var(--base)",
+        default: {
+          DEFAULT: "var(--default)",
           100: "var(--base-100)",
         },
         background: "var(--background)",
