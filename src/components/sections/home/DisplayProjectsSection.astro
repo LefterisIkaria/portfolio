@@ -1,0 +1,40 @@
+---
+import Card from "../../shared/ProjectCard.astro";
+import Link from "@/components/ui/Link.astro";
+---
+
+<section class="flex flex-col gap-3">
+  <div class="flex items-center justify-between">
+    <h3 class="text-lg font-medium">My Work</h3>
+    <Link href="#all-projects">View projects</Link>
+  </div>
+  <ul class="flex flex-wrap gap-1 justify-between">
+    <li>
+      <Card
+        title="First post"
+        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur omnis aperiam hic eum iusto voluptatem asperiores! Animi praesentium, sed fuga aspernatur architecto facere impedit, fugit possimus ullam provident dolorum explicabo."
+        publishedAt={new Date()}
+        slug="post-1"
+        tags={["tag-1", "tag-2"]}
+      />
+    </li>
+    <li>
+      <Card
+        title="Seond post"
+        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur omnis aperiam hic eum iusto voluptatem asperiores! Animi praesentium, sed fuga aspernatur architecto facere impedit, fugit possimus ullam provident dolorum explicabo."
+        publishedAt={new Date()}
+        slug="post-2"
+        tags={["tag-1", "tag-2"]}
+      />
+    </li>
+    <li>
+      <Card
+        title="Seond post"
+        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur omnis aperiam hic eum iusto voluptatem asperiores! Animi praesentium, sed fuga aspernatur architecto facere impedit, fugit possimus ullam provident dolorum explicabo."
+        publishedAt={new Date()}
+        slug="post-2"
+        tags={["tag-1", "tag-2"]}
+      />
+    </li>
+  </ul>
+</section>
