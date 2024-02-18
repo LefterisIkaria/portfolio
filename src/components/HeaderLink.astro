@@ -12,13 +12,13 @@ const { title, href, class: classes } = Astro.props;
 const pathname = removeTrailingSlash(Astro.url.pathname);
 ---
 
+<!-- <p class=""></p> -->
 <a
   href={href}
   class:list={[
     "font-medium transition-colors duration-150 hover:text-default-100",
     {
-      "text-default-100 decoration-dashed underline underline-offset-8":
-        pathname === href,
+      "text-default-100": pathname === href,
     },
     classes,
   ]}
