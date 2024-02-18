@@ -1,11 +1,9 @@
 ---
-import { formatDate } from "@/lib/utils.ts";
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
-import { postcss } from "tailwindcss";
 
-interface Props extends CollectionEntry<"posts"> {}
+type Props = CollectionEntry<"projects">;
 
-const post = Astro.props;
-post.data;
+const { data } = Astro.props;
 ---
+
+<p>{data}</p>
