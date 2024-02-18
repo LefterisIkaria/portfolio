@@ -1,12 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import Button from "@/components/ui/Button.astro";
-import DisplayProjectsSection from "@/components/sections/home/DisplayProjectsSection.astro";
+import FeaturedProjects from "@/components/sections/home/FeaturedProjects.astro";
 import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout>
-  <article>
+  <article class="space-y-28 bg-">
     <section>
       <h2 class="text-2xl">
         Hi, I'm <strong class="text-primary">Lefteris Papaioannou</strong> 👋.
@@ -22,7 +22,7 @@ import { Icon } from "astro-icon/components";
       <Button class={"animate-bounce hover:animate-pulse"}>Download CV</Button>
     </section>
 
-    <DisplayProjectsSection />
+    <FeaturedProjects />
 
     <section>Selected Posts Section</section>
   </article>

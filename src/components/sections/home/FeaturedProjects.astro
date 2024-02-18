@@ -3,17 +3,24 @@ import { getCollection } from "astro:content";
 import ProjectCard from "../../shared/ProjectCard.astro";
 import Link from "@/components/ui/Link.astro";
 
-const projects = await getCollection("projects");
+const projects = await getCollection(
+  "projects",
+  ({ data: project }) => project.featured
+);
 ---
 
-<section class="flex flex-col gap-3">
+<section class="flex flex-col gap-3 w-full">
   <div class="flex items-center justify-between">
     <h3 class="text-lg font-semibold">My Work</h3>
     <Link href="/projects">View all projects</Link>
   </div>
-  <ul class="flex flex-wrap gap-1 justify-between">
-    <li>
-      <ProjectCard {...projects[0]} />
-    </li>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    {
+      projects.map((project) => (
+        <li>
+          <ProjectCard {...project} />
+        </li>
+      ))
+    }
   </ul>
 </section>

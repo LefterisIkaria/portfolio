@@ -1,9 +1,49 @@
 ---
+import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 
-type Props = CollectionEntry<"projects">;
+interface Props {
+  slug: string;
+  data: CollectionEntry<"projects">["data"];
+}
 
-const { data } = Astro.props;
+const { data, slug } = Astro.props;
+const { title, description, technologies, repo, demo } = data;
+
+// href={`/projects/${slug}`}
 ---
 
-<p>{data}</p>
+<a
+  href={`/projects/${slug}`}
+  class="flex flex-col gap-1 px-6 py-4 border border-default rounded group transition hover:-translate-y-2 hover:border-default-100"
+>
+  <header class="flex items-center justify-between">
+    <h3 class="text-base text-default-100">
+      {title}
+    </h3>
+    <Icon
+      name="arrow-up-right"
+      class={"transition group-hover:translate-x-1 group-hover:text-default-100"}
+    />
+  </header>
+  <main class="">
+    <p class="truncate">{description}</p>
+  </main>
+  <footer class="flex flex-col mt-3">
+    <h5>Technologies used</h5>
+    <ul class="flex flex-wrap">
+      {
+        technologies.map((technology, index) => (
+          <li>
+            <span class="transition group-hover:text-primary">
+              {technology}
+            </span>
+            {index !== technologies.length - 1 && (
+              <span class="font-bold mx-1">&bull;</span>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </footer>
+</a>

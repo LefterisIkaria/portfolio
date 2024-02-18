@@ -28,6 +28,10 @@ export default {
       fontFamily: {
         sans: ["'Montserrat Variable'", ...defaultTheme.fontFamily.sans],
       },
+      content: {
+        dot: "'•'",
+        slash: "'/'",
+      },
     },
   },
   plugins: [],
