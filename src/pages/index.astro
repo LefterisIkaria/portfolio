@@ -1,11 +1,10 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
 import Button from "@/components/ui/Button.astro";
 import FeaturedProjects from "@/components/sections/home/FeaturedProjects.astro";
-import { Icon } from "astro-icon/components";
 ---
 
-<BaseLayout>
+<PageLayout>
   <article class="space-y-28 bg-">
     <section>
       <h2 class="text-2xl">
@@ -15,7 +14,7 @@ import { Icon } from "astro-icon/components";
         I'm a <strong>software developer</strong> with over <strong
           >2 years</strong
         >
-        of experirnce. I'm currently working as a <strong>fullstack</strong> developer
+        of experience. I'm currently working as a <strong>fullstack</strong> developer
         using <strong>Java, React, HTML and CSS.</strong> Outside of work, I enjoy
         traveling and learning new things.
       </p>
@@ -26,4 +25,4 @@ import { Icon } from "astro-icon/components";
 
     <section>Selected Posts Section</section>
   </article>
-</BaseLayout>
+</PageLayout>

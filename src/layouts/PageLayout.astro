@@ -1,0 +1,16 @@
+---
+import Header from "@/components/Header.astro";
+import BlurCircle from "@/components/ui/BlurCircle.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <Header />
+  <main class="flex-1 my-16">
+    <slot />
+  </main>
+  <footer>Footer</footer>
+
+  <BlurCircle position="top-left" color="primary" />
+  <BlurCircle position="bottom-right" color="accent" />
+</BaseLayout>

@@ -1,13 +1,10 @@
 ---
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
-
 import "../styles/base.css";
-import Header from "../components/Header.astro";
-import BlurCircle from "../components/ui/BlurCircle.astro";
 ---
 
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,16 +14,8 @@ import BlurCircle from "../components/ui/BlurCircle.astro";
     <script is:inline src="/scripts/apply-theme.ts"></script>
   </head>
   <body
-    class="container py-16 bg-background text-default text-sm font-sans flex flex-col min-h-screen antialiased transition duration-500 ease-in"
+    class="container py-16 bg-background text-default text-sm font-sans flex flex-col min-h-screen transition duration-500 ease-in"
   >
-    <Header />
-    <main class="flex-1 my-16">
-      <slot />
-    </main>
-    <footer>Footer</footer>
-
-    <!-- <BlurCircle position="bottom-left" /> -->
-    <BlurCircle position="top-left" color="primary" />
-    <BlurCircle position="bottom-right" color="accent" />
+    <slot />
   </body>
 </html>

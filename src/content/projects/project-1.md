@@ -7,4 +7,6 @@ technologies:
   - TS
   - Tailwind CSS
 featured: true
+repo: "some-repo-link"
+demo: "some-demo-link"
 ---

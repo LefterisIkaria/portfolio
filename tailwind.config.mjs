@@ -9,7 +9,8 @@ export default {
       center: true,
       padding: "1rem",
       screens: {
-        sm: "672px",
+        sm: "100%",
+        // md: "640px", // "768px
         lg: "896px",
       },
     },
