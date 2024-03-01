@@ -1,9 +1,11 @@
 ---
-title: "Project 2"
+title: "FAQTech: A forum application"
 description: "This is project 2"
 technologies:
-  - Java
-
+  - Spring Boot
+  - React
+  - PostgreSQL
+  - Docker
 featured: true
 ---
 

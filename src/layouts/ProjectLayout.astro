@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PageLayout from "./PageLayout.astro";
+
+type Props = {
+  project: CollectionEntry<"projects">["data"];
+};
+
+const { project } = Astro.props;
+---
+
+<PageLayout>
+  <article class="flex flex-col gap-11">
+    <header class="flex flex-col gap-3">
+      <h1 class="text-default-100 text-lg font-medium">{project.title}</h1>
+      <p>
+        {project.description}
+      </p>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+  </article>
+</PageLayout>
