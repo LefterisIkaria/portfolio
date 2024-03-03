@@ -3,11 +3,22 @@ import { Icon } from "astro-icon/components";
 ---
 
 <footer class="flex items-center justify-between">
-  <p>Copyrights @ <span id="year">2024</span></p>
+  <p>Copyrights @ <span id="year">...</span></p>
 
   <div role="navigation">
-    <a href="">
+    <a
+      href="https://www.linkedin.com/in/lefteris-papaioannou-23090521a/"
+      target="_blank"
+    >
       <Icon name="linkedin-logo" size={18} />
     </a>
   </div>
 </footer>
+
+<script>
+  const year: number = new Date().getFullYear();
+  const yearElement = document.getElementById("year");
+  if (yearElement) {
+    yearElement.textContent = year.toString();
+  }
+</script>
