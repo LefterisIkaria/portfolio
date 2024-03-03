@@ -11,11 +11,12 @@ const { class: classes, variant = "default", ...rest } = Astro.props;
 <a
   {...rest}
   class:list={[
-    "font-medium transition-colors duration-150  decoration-dashed underline underline-offset-8",
-    { "hover:text-default-100": variant === "default" },
+    "flex items-center gap-1 font-medium transition-colors duration-150 border-b border-default border-dashed",
     {
-      "text-primary brightness-95 hover:hover:brightness-125":
-        variant === "primary",
+      "hover:text-default-100 hover:border-default-100": variant === "default",
+    },
+    {
+      "text-primary brightness-95 hover:brightness-125": variant === "primary",
     },
     classes,
   ]}
