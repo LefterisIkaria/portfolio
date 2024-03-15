@@ -1,25 +1,27 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"button"> {
-  variant?: "default" | "ghost" | "outline" | "link";
-}
+type LinkProps = HTMLAttributes<"a"> & {
+  href: string | URL;
+};
 
-const { class: classes, variant = "default", ...rest } = Astro.props;
+type ButtonProps = HTMLAttributes<"button"> & {
+  href?: null | undefined;
+};
+
+type Props = LinkProps | ButtonProps;
+
+const { href = undefined, class: classes, ...rest } = Astro.props;
 ---
 
-<button
-  {...rest}
-  class:list={[
-    "bg-primary-foreground text-primary border border-primary border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:dark:brightness-150 hover:brightness-100 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group",
-    // "after:bg-primary after:shadow-primary after:absolute after:-top-[150%] after:left-0 after:inline-flex after:w-80 after:h-[5px] after:rounded-md after:opacity-50 after:group-hover:top-[150%] after:duration-500 after:shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]",
-    classes,
-  ]}
->
-  <span
-    class="bg-primary shadow-primary absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"
-  ></span>
-  <div class="flex items-center justify-center gap-3">
-    <slot />
-  </div>
-</button>
+{
+  href ? (
+    <a href={href} class:list={[classes]} {...(rest as HTMLAttributes<"a">)}>
+      <slot />
+    </a>
+  ) : (
+    <button class:list={[classes]} {...(rest as HTMLAttributes<"button">)}>
+      <slot />
+    </button>
+  )
+}

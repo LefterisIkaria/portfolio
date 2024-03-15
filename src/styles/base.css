@@ -26,4 +26,15 @@
   .text-gradient {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
   }
+
+  .markdown {
+    @apply prose prose-sm 
+    prose-headings:text-default-100 
+    prose-p:text-default 
+    prose-strong:text-primary
+    prose-a:text-default prose-a:no-underline prose-a:border-b prose-a:border-dashed prose-a:border-default prose-a:transition hover:prose-a:text-default-100 hover:prose-a:border-default-100
+    prose-ul:text-default prose-ol:text-default
+    prose-li:marker:text-default-100
+    prose-code:text-base;
+  }
 }
